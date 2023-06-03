@@ -1,0 +1,47 @@
+{%extends 'base2.html'%}
+
+{%block content%}
+
+<div class="center">
+     <div class="card-body">
+        <h4 class="card-title">Doctores</h4>
+        <br/>
+        <a name="" id="" class="btn btn-info" href="{% url 'doctor-create' %}" role="button">Registrar Doctor</a>
+        <div class="table-responsive-sm">
+            <table class="table table-primary" width="90%">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">direccion</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for doctor in doctores %}
+                    <tr class="">
+                        <td scope="row">{{ doctor.doctor_id }}</td>
+                        <td>{{ doctor.doctor_nombre }}</td>
+                        <td>{{ doctor.doctor_direccion }}</td>
+                        <td>{{ doctor.doctor_telefono }}</td>
+                         <td>
+                        <a name="" id="" class="btn btn-info" href="{% url 'doctor-update' doctor.doctor_id %}" role="button">Editar</a>
+                        | 
+                        <a name="" id="" class="btn btn-danger" href="{% url 'doctor-delete' doctor.doctor_id %}" role="button">Borrar</a> 
+                        </td>
+                    </tr>
+               
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+
+
+
+{%endblock content%}

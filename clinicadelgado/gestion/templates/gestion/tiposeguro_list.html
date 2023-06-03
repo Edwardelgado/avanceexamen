@@ -1,0 +1,43 @@
+{%extends 'base2.html'%}
+
+{%block content%}
+
+<div class="center">
+     <div class="card-body">
+        <h4 class="card-title">Tipo seguro</h4>
+        <br/>
+        <a name="" id="" class="btn btn-info" href="{% url 'tiposeguro-create' %}" role="button">Registrar Tipo seguro</a>
+        <div class="table-responsive-sm">
+            <table class="table table-primary" width="90%">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tiposeguro in tiposeguros %}
+                    <tr class="">
+                        <td scope="row">{{ tiposeguro.tipo_seguro_id }}</td>
+                        <td>{{ tiposeguro.tipo_seguro_nombre }}</td>
+                         <td>
+                        <a name="" id="" class="btn btn-info" href="{% url 'tiposeguro-update' tiposeguro.tipo_seguro_id %}" role="button">Editar</a>
+                        | 
+                        <a name="" id="" class="btn btn-danger" href="{% url 'tiposeguro-delete' tiposeguro.tipo_seguro_id %}" role="button">Borrar</a> 
+                        </td>
+                    </tr>
+               
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+
+
+
+{%endblock content%}

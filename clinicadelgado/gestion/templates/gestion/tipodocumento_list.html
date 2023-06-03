@@ -1,0 +1,43 @@
+{%extends 'base2.html'%}
+
+{%block content%}
+
+<div class="center">
+     <div class="card-body">
+        <h4 class="card-title">Tipo Documento</h4>
+        <br/>
+        <a name="" id="" class="btn btn-info" href="{% url 'tipodocumento-create' %}" role="button">Registrar Tipo Documento</a>
+        <div class="table-responsive-sm">
+            <table class="table table-primary" width="90%">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tipodocumento in tipodocumentos %}
+                    <tr class="">
+                        <td scope="row">{{ tipodocumento.tipo_documento_id }}</td>
+                        <td>{{ tipodocumento.tipo_documento_nombre }}</td>
+                         <td>
+                        <a name="" id="" class="btn btn-info" href="{% url 'tipodocumento-update' tipodocumento.tipo_documento_id %}" role="button">Editar</a>
+                        | 
+                        <a name="" id="" class="btn btn-danger" href="{% url 'tipodocumento-delete' tipodocumento.tipo_documento_id %}" role="button">Borrar</a> 
+                        </td>
+                    </tr>
+               
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+
+
+
+{%endblock content%}

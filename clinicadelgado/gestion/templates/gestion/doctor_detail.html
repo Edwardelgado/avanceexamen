@@ -1,0 +1,24 @@
+{%extends 'base2.html'%}
+
+{%block content%}
+
+<div class="center">
+	<h2>Detalle de tareas</h2>
+	{% if tasks %}
+    <ul class="tasks">
+        {% for task in tasks %}
+            <li>
+                <a href="{% url 'task' task.id %}" class="{% if task.completed %}completed{%endif%}">{{ task.title }}</a> 
+                 <a href="#" class="{% if task.completed%}completed{%endif%}">{{ task.title }}</a>  
+                <div  class="task-controls">
+                    <a href="#"><i class="bi bi-trash"></i> </a>
+                    <a href="{%url 'task-update' task.id %}"><i class="bi bi-pencil-square"></i></a>
+                </div>
+            </li>
+        {% endfor %}
+    {% else %}
+        <p>🎉 Hey!!! que bien no tienes tareas pendientes</p>
+    {% endif %}
+	</ul>
+</div>
+{%endblock content%}
