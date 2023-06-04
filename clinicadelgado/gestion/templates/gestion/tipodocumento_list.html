@@ -7,6 +7,8 @@
         <h4 class="card-title">Tipo Documento</h4>
         <br/>
         <a name="" id="" class="btn btn-info" href="{% url 'tipodocumento-create' %}" role="button">Registrar Tipo Documento</a>
+        <br/>
+        <br/>
         <div class="table-responsive-sm">
             <table class="table table-primary" width="90%">
                 <thead>
@@ -24,7 +26,7 @@
                          <td>
                         <a name="" id="" class="btn btn-info" href="{% url 'tipodocumento-update' tipodocumento.tipo_documento_id %}" role="button">Editar</a>
                         | 
-                        <a name="" id="" class="btn btn-danger" href="{% url 'tipodocumento-delete' tipodocumento.tipo_documento_id %}" role="button">Borrar</a> 
+                        <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_tipodocumento' tipodocumento.tipo_documento_id %}" role="button">Borrar</a> 
                         </td>
                     </tr>
                

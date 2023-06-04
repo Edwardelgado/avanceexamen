@@ -2,7 +2,6 @@
 
 <!doctype html>
 <html lang="en">
-
 <head>
   <title>{% block titulo %}  {% endblock %}</title>
   <!-- Required meta tags -->
@@ -12,6 +11,8 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!-- XDSoft DateTimePicker -->  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha256-DOS9W6NR+NFe1fUhEE0PGKY/fubbUCnOfTje2JMDw3Y=" crossorigin="anonymous" />
 
 </head>
 
@@ -22,13 +23,30 @@
   
     <!-- place navbar here -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="nav navbar-nav">
-            <a class="nav-item nav-link active" href="{% url 'inicio' %}" aria-current="page">Inicio <span class="visually-hidden">(current)</span></a>
-            <a class="nav-item nav-link active" href="{% url 'doctores' %}">Doctores</a>
-            <a class="nav-item nav-link active" href="{% url 'especialidades' %}">Especialidades</a>
-             <a class="nav-item nav-link active" href="{% url 'tiposeguros' %}">Tipo de Seguros</a>
-               <a class="nav-item nav-link active" href="{% url 'tipodocumentos' %}">Tipo de Documentos</a>
-       
+           {%if request.user.is_authenticated %}
+
+           <div class="nav navbar-nav">
+           
+                <a class="nav-item nav-link active" href="{% url 'usuario-update' user.username %}">Bienvenido {{ request.user.username | title }}</a>
+                                              
+                <a class="nav-item nav-link active" href="{% url 'gestion' %}" aria-current="page">Sistema <span class="visually-hidden">(current)</span></a>
+                <a class="nav-item nav-link active" href="{% url 'doctores' %}">Doctores</a>
+                <a class="nav-item nav-link active" href="{% url 'especialidades' %}">Especialidades</a>
+                <a class="nav-item nav-link active" href="{% url 'tiposeguros' %}">Tipo de Seguros</a>
+                <a class="nav-item nav-link active" href="{% url 'tipodocumentos' %}">Tipo de Documentos</a>
+                <a class="nav-item nav-link active" href="{% url 'pacientes' %}">Pacientes</a>
+                <a class="nav-item nav-link active" href="{% url 'citas' %}">Citas</a>
+                <a class="nav-item nav-link active" href="{% url 'usuarios' %}">Usuarios</a>
+                <a class="nav-item nav-link active" href="{% url 'logout' %}">Logout</a> 
+            {%else%}
+                <a href="{% url 'login' %}">Login</a>
+               <a href="{% url 'registro' %}">Registrarse</a>
+                
+            {%endif%}
+
+             </div>
+
+
             
         </div>
     </nav>
@@ -39,14 +57,20 @@
                 <div class="col-12">
                 <br/><br/><br/><br/>
                 {% block content %}  {% endblock %}
+
+                {% block scripts_local %}  
+                {% endblock scripts_local %}  
                 </div>
             </div>
             
         </div>
   </main>
   <footer>
+ 
     <!-- place footer here -->
   </footer>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script> 
+
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">

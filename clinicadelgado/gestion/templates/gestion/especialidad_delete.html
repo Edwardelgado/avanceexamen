@@ -7,7 +7,7 @@
  	{%csrf_token %}
  	<h2>{% if especialidad %} delete {%endif%} Especialidad</h2>
 	{% for field in form %}
-		{% if field.name == 'especialidad_nombre' %}
+		{% if field.name == 'completed' %}
 			<p>
 				{{ field.label_tag }}
 				{{ field }}

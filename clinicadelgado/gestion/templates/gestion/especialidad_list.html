@@ -7,6 +7,8 @@
         <h4 class="card-title">Especialidades</h4>
         <br/>
         <a name="" id="" class="btn btn-info" href="{% url 'especialidad-create' %}" role="button">Registrar especialidad</a>
+        <br/>
+        <br/>
         <div class="table-responsive-sm">
             <table class="table table-primary" width="90%">
                 <thead>
@@ -24,7 +26,7 @@
                          <td>
                         <a name="" id="" class="btn btn-info" href="{% url 'especialidad-update' especialidad.especialidad_id %}" role="button">Editar</a>
                         | 
-                        <a name="" id="" class="btn btn-danger" href="{% url 'especialidad-delete' especialidad.especialidad_id %}" role="button">Borrar</a> 
+                        <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_especialidad' especialidad.especialidad_id %}" role="button">Borrar</a> 
                         </td>
                     </tr>
                

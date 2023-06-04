@@ -1,0 +1,47 @@
+{%extends 'base2.html'%}
+
+{%block content%}
+
+<div class="center">
+     <div class="card-body">
+        <h4 class="card-title">Usuarios</h4>
+        <br/>
+        <br/>
+        <div class="table-responsive-sm">
+            <table class="table table-primary justify-content-center">
+                <thead>
+                    <tr>
+                        <th scope="col">Username</th>
+                        <th scope="col">Fullname</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in usuarios %}
+                    <tr class="">
+                        <td scope="row">{{ usuario.username }}</td>
+                        <td>{{ usuario.full_name }}</td>
+                        <td>{{ usuario.email }}</td>
+                        <td>{{ usuario.telefono }}</td>
+                        <td>
+                         <a name="" id="" class="btn btn-info" href="{% url 'usuario-update' usuario.username %}" role="button">Editar</a>
+                        | 
+                        <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_usuario' usuario.username %}" role="button">Borrar</a> 
+                       </td> {% comment %}{% endcomment %} 
+                    </tr>
+               
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+
+
+
+{%endblock content%}

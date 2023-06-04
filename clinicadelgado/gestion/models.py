@@ -7,7 +7,7 @@ from users.models import Usuario
 class Doctor(models.Model):
  doctor_id = models.AutoField(primary_key=True)
  doctor_nombre = models.CharField(max_length=100, verbose_name='Nombre del doctor')
- doctor_direccion = models.CharField(max_length=200, verbose_name='Direcicon de la casa del doctor')
+ doctor_direccion = models.CharField(max_length=200, verbose_name='Direccion de la casa del doctor')
  doctor_telefono = models.CharField(max_length=12, verbose_name='Telefono del doctor')
 
  def __str__(self) -> str:
@@ -53,17 +53,17 @@ class Paciente(models.Model):
  nombres = models.CharField(max_length=100, verbose_name='Nombre del paciente')
  apellidos = models.CharField(max_length=100, verbose_name='Apellidos del paciente')
  direccion = models.CharField(max_length=200, verbose_name='Direccion del paciente')
- fecha_nacimiento = models.DateTimeField()
+ fecha_nacimiento = models.DateField(auto_now=False)
  tipo_seguro= models.ForeignKey(Tiposeguro,on_delete=models.CASCADE, null=True, blank=True)
  
  def __str__(self) -> str:
    fila = self.nro_documento
    return fila
-class Meta:
+
+ class Meta:
        db_table = "pacientes"
 
-
-class Citas(models.Model):
+class Cita(models.Model):
  cita_id = models.AutoField(primary_key=True)
  paciente = models.ForeignKey(Paciente,on_delete=models.CASCADE, null=True, blank=True)
  fecha_cita = models.DateTimeField()

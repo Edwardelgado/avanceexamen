@@ -7,7 +7,7 @@
  	{%csrf_token %}
  	<h2>{% if tiposeguro %} delete {%endif%} tiposeguro</h2>
 	{% for field in form %}
-		{% if field.name == 'tipo_seguro_nombre' %}
+		{% if field.name == 'completed' %}
 			<p>
 				{{ field.label_tag }}
 				{{ field }}

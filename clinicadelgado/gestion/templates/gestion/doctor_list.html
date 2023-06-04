@@ -7,8 +7,10 @@
         <h4 class="card-title">Doctores</h4>
         <br/>
         <a name="" id="" class="btn btn-info" href="{% url 'doctor-create' %}" role="button">Registrar Doctor</a>
+        <br/>
+        <br/>
         <div class="table-responsive-sm">
-            <table class="table table-primary" width="90%">
+            <table class="table table-primary justify-content-center">
                 <thead>
                     <tr>
                         <th scope="col">Id</th>
@@ -25,10 +27,10 @@
                         <td>{{ doctor.doctor_nombre }}</td>
                         <td>{{ doctor.doctor_direccion }}</td>
                         <td>{{ doctor.doctor_telefono }}</td>
-                         <td>
+                        <td>
                         <a name="" id="" class="btn btn-info" href="{% url 'doctor-update' doctor.doctor_id %}" role="button">Editar</a>
                         | 
-                        <a name="" id="" class="btn btn-danger" href="{% url 'doctor-delete' doctor.doctor_id %}" role="button">Borrar</a> 
+                        <a name="" id="" class="btn btn-danger" href="{% url 'eliminar_doctor' doctor.doctor_id %}" role="button">Borrar</a> 
                         </td>
                     </tr>
                
